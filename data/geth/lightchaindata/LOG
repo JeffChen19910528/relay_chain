@@ -1,0 +1,32 @@
+=============== Mar 20, 2024 (CST) ===============
+10:59:24.704543 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+10:59:24.708580 db@open opening
+10:59:24.708853 version@stat F·[] S·0B[] Sc·[]
+10:59:24.710013 db@janitor F·2 G·0
+10:59:24.710029 db@open done T·1.416494ms
+10:59:24.725927 db@close closing
+10:59:24.725976 db@close done T·48.711µs
+=============== Mar 20, 2024 (CST) ===============
+13:57:34.220258 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:57:34.223217 version@stat F·[] S·0B[] Sc·[]
+13:57:34.223558 db@open opening
+13:57:34.223647 journal@recovery F·1
+13:57:34.227163 journal@recovery recovering @1
+13:57:34.230475 memdb@flush created L0@2 N·16 S·1KiB "H\xe3\xa1..(\xda\x17,v9":"\xe2T/..\xf6\x14\x9f,v3"
+13:57:34.232112 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+13:57:34.235985 db@janitor F·3 G·0
+13:57:34.236032 db@open done T·12.434123ms
+13:57:34.247989 db@close closing
+13:57:34.248068 db@close done T·78.079µs
+=============== Mar 20, 2024 (CST) ===============
+17:29:21.700284 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:29:21.700429 version@stat F·[1] S·1KiB[1KiB] Sc·[0.25]
+17:29:21.700479 db@open opening
+17:29:21.700525 journal@recovery F·1
+17:29:21.704163 journal@recovery recovering @3
+17:29:21.705996 memdb@flush created L0@5 N·1 S·331B "eth..(\xda\x17,v18":"eth..(\xda\x17,v18"
+17:29:21.709168 version@stat F·[2] S·1KiB[1KiB] Sc·[0.50]
+17:29:21.714091 db@janitor F·4 G·0
+17:29:21.714105 db@open done T·13.617661ms
+17:29:21.718444 db@close closing
+17:29:21.718495 db@close done T·49.883µs
