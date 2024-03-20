@@ -48,7 +48,11 @@ def store_data(data):
         'nonce': nonce,
     })
 
-    signed_txn = w3.eth.account.sign_transaction(txn_dict, '0xf179dfe23b4aa40ca0b6ab7731171dd770cbe175bd71856554b9d22d8e090f25')
+    pk_path = 'private_key.txt'
+    f = open(pk_path, 'r')
+    pk = f.read().strip()
+    print(pk)
+    signed_txn = w3.eth.account.sign_transaction(txn_dict, pk)
     txn_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
     receipt = w3.eth.wait_for_transaction_receipt(txn_hash)
     return receipt
