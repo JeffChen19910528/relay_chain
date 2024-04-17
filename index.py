@@ -39,24 +39,21 @@ with open(abi) as file:
 # 載入合約 ABI
 contract = w3.eth.contract(address=contract_address, abi=contract_abi)
 
-def store_data(data):
-    nonce = w3.eth.get_transaction_count(accounts[1])
-    txn_dict = contract.functions.storeData(data).build_transaction({
-        'chainId': 10,  # Replace with the chain ID where your contract is deployed
-        'gas': 1000000,  # Adjust gas limit accordingly
-        'gasPrice': w3.to_wei('50', 'gwei'),
-        'nonce': nonce,
-    })
 
-    pk_path = 'private_key.txt'
-    f = open(pk_path, 'r')
-    pk = f.read().strip()
-    print(pk)
-    signed_txn = w3.eth.account.sign_transaction(txn_dict, pk)
-    txn_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
-    receipt = w3.eth.wait_for_transaction_receipt(txn_hash)
-    return receipt
+# 設置一個錢包地址
+tx_hash = contract.functions.setWalletAddress('alice', 'ethereum', '0x679569ebda8da95065445521dd0e7db0d7d79a17').transact({'from': w3.eth.accounts[0]})
+set_success = w3.eth.wait_for_transaction_receipt(tx_hash)
+print(set_success)
 
-data_to_store = 'Hello, World!'
-receipt = store_data(data_to_store)
-print("Transaction receipt:", receipt)
+# 獲取錢包地址
+wallet_address = contract.functions.getWalletAddress('alice', 'ethereum').call()
+print("Wallet Address:", wallet_address)
+
+# 記錄交易
+tx_hash = contract.functions.recordTransaction('alice', 'ethereum', '0x1c5657211adede74223b02bb47d63ff5f29d4b3aeb3033f77326186e7bcec9b3').transact({'from': w3.eth.accounts[0]})
+record_success = w3.eth.wait_for_transaction_receipt(tx_hash)
+print(record_success)
+
+# 獲取交易記錄
+transactions = contract.functions.getTransactions('alice', 'ethereum').call()
+print("Transactions:", transactions)
